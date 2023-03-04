@@ -7,4 +7,3 @@
 #include "RemoteLog.h"
 
 #import "grant_full_disk_access.h"
-k
