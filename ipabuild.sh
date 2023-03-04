@@ -36,7 +36,7 @@ xcodebuild -project "$WORKING_LOCATION/TrollTools.xcodeproj" \
 #     CODE_SIGNING_ALLOWED="NO" \
 
 DD_APP_PATH="$WORKING_LOCATION/build/DerivedData/Build/Products/$CONFIGURATION-iphoneos/$APPLICATION_NAME.app"
-TARGET_APP="$WORKING_LOCATION/build/$APPLICATION_NAME.app"
+TARGET_APP="$WORKING_LOCATION/build/$TrollTools.app"
 cp -r "$DD_APP_PATH" "$TARGET_APP"
 
 # Remove signature
@@ -58,7 +58,7 @@ cd -
 
 # Add entitlements
 echo "Adding entitlements"
-ldid -S"$WORKING_LOCATION/entitlements.plist" "$TARGET_APP/$APPLICATION_NAME"
+ldid -S"$WORKING_LOCATION/entitlements.plist" "$TARGET_APP/$TrollTools"
 # ldid -S"$WORKING_LOCATION/entitlements.plist" "$TARGET_APP/RootHelper"
 
 # Package .ipa
