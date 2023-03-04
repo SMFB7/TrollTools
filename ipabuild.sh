@@ -13,8 +13,8 @@ if [ ! -d "build" ]; then
 fi
 
 cd build
-if [ -e "$APPLICATION_NAME.tipa" ]; then
-rm $APPLICATION_NAME.tipa
+if [ -e "$APPLICATION_NAME.ipa" ]; then
+rm $APPLICATION_NAME.ipa
 fi
 
 # Build .app
@@ -65,6 +65,6 @@ ldid -S"$WORKING_LOCATION/entitlements.plist" "$TARGET_APP/$APPLICATION_NAME"
 rm -rf Payload
 mkdir Payload
 cp -r $APPLICATION_NAME.app Payload/$APPLICATION_NAME.app
-zip -vr $APPLICATION_NAME.tipa Payload
+zip -vr $APPLICATION_NAME.ipa Payload
 rm -rf $APPLICATION_NAME.app
 rm -rf Payload
