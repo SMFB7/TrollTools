@@ -5,7 +5,7 @@ set -e
 cd "$(dirname "$0")"
 
 WORKING_LOCATION="$(pwd)"
-APPLICATION_NAME=TrollTools
+APPLICATION_NAME=TrollTools16
 CONFIGURATION=Debug
 
 if [ ! -d "build" ]; then
@@ -13,13 +13,13 @@ if [ ! -d "build" ]; then
 fi
 
 cd build
-if [ -e "$APPLICATION_NAME.tipa" ]; then
-rm $APPLICATION_NAME.tipa
+if [ -e "$APPLICATION_NAME.ipa" ]; then
+rm $APPLICATION_NAME.ipa
 fi
 
 # Build .app
 xcodebuild -project "$WORKING_LOCATION/$APPLICATION_NAME.xcodeproj" \
-    -scheme TrollTools \
+    -scheme TrollTools16 \
     -configuration Debug \
     -derivedDataPath "$WORKING_LOCATION/build/DerivedData" \
     -destination 'generic/platform=iOS' \
@@ -65,6 +65,6 @@ ldid -S"$WORKING_LOCATION/entitlements.plist" "$TARGET_APP/$APPLICATION_NAME"
 rm -rf Payload
 mkdir Payload
 cp -r $APPLICATION_NAME.app Payload/$APPLICATION_NAME.app
-zip -vr $APPLICATION_NAME.tipa Payload
+zip -vr $APPLICATION_NAME.ipa Payload
 rm -rf $APPLICATION_NAME.app
 rm -rf Payload
