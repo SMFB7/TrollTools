@@ -5,7 +5,7 @@ set -e
 cd "$(dirname "$0")"
 
 WORKING_LOCATION="$(pwd)"
-APPLICATION_NAME=TrollTools16
+APPLICATION_NAME=TrollTools
 CONFIGURATION=Debug
 
 if [ ! -d "build" ]; then
