@@ -18,7 +18,7 @@ rm $APPLICATION_NAME.ipa
 fi
 
 # Build .app
-xcodebuild -project "$WORKING_LOCATION/$APPLICATION_NAME.xcodeproj" \
+xcodebuild -project "$WORKING_LOCATION/TrollTools.xcodeproj" \
     -scheme TrollTools16 \
     -configuration Debug \
     -derivedDataPath "$WORKING_LOCATION/build/DerivedData" \
