@@ -19,7 +19,7 @@ fi
 
 # Build .app
 xcodebuild -project "$WORKING_LOCATION/TrollTools.xcodeproj" \
-    -scheme TrollTools16 \
+    -scheme TrollTools \
     -configuration Debug \
     -derivedDataPath "$WORKING_LOCATION/build/DerivedData" \
     -destination 'generic/platform=iOS' \
