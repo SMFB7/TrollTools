@@ -13,12 +13,12 @@ if [ ! -d "build" ]; then
 fi
 
 cd build
-if [ -e "$APPLICATION_NAME.ipa" ]; then
-rm $APPLICATION_NAME.ipa
+if [ -e "$APPLICATION_NAME.tipa" ]; then
+rm $APPLICATION_NAME.tipa
 fi
 
 # Build .app
-xcodebuild -project "$WORKING_LOCATION/TrollTools.xcodeproj" \
+xcodebuild -project "$WORKING_LOCATION/$APPLICATION_NAME.xcodeproj" \
     -scheme TrollTools \
     -configuration Debug \
     -derivedDataPath "$WORKING_LOCATION/build/DerivedData" \
@@ -36,7 +36,7 @@ xcodebuild -project "$WORKING_LOCATION/TrollTools.xcodeproj" \
 #     CODE_SIGNING_ALLOWED="NO" \
 
 DD_APP_PATH="$WORKING_LOCATION/build/DerivedData/Build/Products/$CONFIGURATION-iphoneos/$APPLICATION_NAME.app"
-TARGET_APP="$WORKING_LOCATION/build/$TrollTools.app"
+TARGET_APP="$WORKING_LOCATION/build/$APPLICATION_NAME.app"
 cp -r "$DD_APP_PATH" "$TARGET_APP"
 
 # Remove signature
@@ -58,13 +58,13 @@ cd -
 
 # Add entitlements
 echo "Adding entitlements"
-ldid -S"$WORKING_LOCATION/entitlements.plist" "$TARGET_APP/$TrollTools"
+ldid -S"$WORKING_LOCATION/entitlements.plist" "$TARGET_APP/$APPLICATION_NAME"
 # ldid -S"$WORKING_LOCATION/entitlements.plist" "$TARGET_APP/RootHelper"
 
 # Package .ipa
 rm -rf Payload
 mkdir Payload
 cp -r $APPLICATION_NAME.app Payload/$APPLICATION_NAME.app
-zip -vr $APPLICATION_NAME.ipa Payload
+zip -vr $APPLICATION_NAME.tipa Payload
 rm -rf $APPLICATION_NAME.app
 rm -rf Payload
