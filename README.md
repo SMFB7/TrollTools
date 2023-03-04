@@ -8,7 +8,7 @@ https://github.com/yahoojapan/SwiftyXMLParser - MIT
 
 https://github.com/opa334/TrollStore/blob/main/LICENSE - MIT
 
-https://github.com/haxi0/SantanderEscaped - grant_full_disk_access.m, entitlements
+https://github.com/haxi0/SantanderEscaped - grant_full_disk_access.m
 
 https://github.com/SerenaKit/SantanderWrappers
 
